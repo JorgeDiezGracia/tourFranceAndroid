@@ -1,0 +1,53 @@
+package com.svalero.tourfrance.model;
+
+public class Stage {
+
+    private long id;
+    private String departure;
+    private String arrival;
+    private String type;
+    private int elevation;
+    private float kilometers;
+    private boolean mountainStage;
+    private String stageDate;
+
+    public Stage() {}
+
+    public Stage(String departure, String arrival, String type,
+                 int elevation, float kilometers, boolean mountainStage, String stageDate) {
+        this.departure = departure;
+        this.arrival = arrival;
+        this.type = type;
+        this.elevation = elevation;
+        this.kilometers = kilometers;
+        this.mountainStage = mountainStage;
+        this.stageDate = stageDate;
+    }
+
+    public long getId() { return id; }
+    public void setId(long id) { this.id = id; }
+
+    public String getDeparture() { return departure; }
+    public void setDeparture(String departure) { this.departure = departure; }
+
+    public String getArrival() { return arrival; }
+    public void setArrival(String arrival) { this.arrival = arrival; }
+
+    public String getType() { return type; }
+    public void setType(String type) { this.type = type; }
+
+    public int getElevation() { return elevation; }
+    public void setElevation(int elevation) { this.elevation = elevation; }
+
+    public float getKilometers() { return kilometers; }
+    public void setKilometers(float kilometers) { this.kilometers = kilometers; }
+
+    public boolean isMountainStage() { return mountainStage; }
+    public void setMountainStage(boolean mountainStage) { this.mountainStage = mountainStage; }
+
+    public String getStageDate() { return stageDate; }
+    public void setStageDate(String stageDate) { this.stageDate = stageDate; }
+
+    @Override
+    public String toString() { return departure + " → " + arrival + " (" + type + ")"; }
+}
