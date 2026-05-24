@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">tourFranceAndroid</string>
+    <string name="cyclists">Ciclistas</string>
+    <string name="add_cyclist">Añadir ciclista</string>
+    <string name="no_cyclists">No hay ciclistas disponibles</string>
+    <string name="teams">Equipos</string>
+    <string name="stages">Etapas</string>
+    <string name="climbs">Puertos</string>
+    <string name="error_loading">Error al cargar los datos</string>
+    <string name="confirm_delete">¿Eliminar este elemento?</string>
+    <string name="yes">Sí</string>
+    <string name="cancel">Cancelar</string>
 </resources>
