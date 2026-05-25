@@ -19,5 +19,20 @@ public class MainActivity extends AppCompatActivity {
         cardCyclists.setOnClickListener(v -> {
             startActivity(new Intent(this, CyclistListActivity.class));
         });
+
+        MaterialCardView cardTeams = findViewById(R.id.card_teams);
+        cardTeams.setOnClickListener(v -> {
+            startActivity(new Intent(this, TeamListActivity.class));
+        });
+
+        //MaterialCardView cardStages = findViewById(R.id.card_stages);
+       // cardStages.setOnClickListener(v -> {
+        //    startActivity(new Intent(this, StageListActivity.class));
+        //});
+
+        //MaterialCardView cardClimbs = findViewById(R.id.card_climbs);
+        //cardClimbs.setOnClickListener(v -> {
+        //    startActivity(new Intent(this, ClimbListActivity.class));
+        //});
     }
 }

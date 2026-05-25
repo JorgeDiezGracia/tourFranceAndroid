@@ -1,12 +1,20 @@
 package com.svalero.tourfrance.model;
 
+import com.google.gson.annotations.Expose;
+
 public class Team {
 
+    @Expose(serialize = false, deserialize = true)
     private long id;
+    @Expose
     private String name;
+    @Expose
     private String country;
+    @Expose
     private String email;
+    @Expose
     private float budget;
+    @Expose
     private String fundationDate;
 
     public Team() {}
@@ -21,19 +29,14 @@ public class Team {
 
     public long getId() { return id; }
     public void setId(long id) { this.id = id; }
-
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
-
     public String getCountry() { return country; }
     public void setCountry(String country) { this.country = country; }
-
     public String getEmail() { return email; }
     public void setEmail(String email) { this.email = email; }
-
     public float getBudget() { return budget; }
     public void setBudget(float budget) { this.budget = budget; }
-
     public String getFundationDate() { return fundationDate; }
     public void setFundationDate(String fundationDate) { this.fundationDate = fundationDate; }
 
