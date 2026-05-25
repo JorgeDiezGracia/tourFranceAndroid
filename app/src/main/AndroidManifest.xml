@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- Permisos -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -16,7 +15,6 @@
         android:theme="@style/Theme.TourFranceAndroid"
         android:usesCleartextTraffic="true">
 
-        <!-- Clave Google Maps -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="YOUR_MAPS_API_KEY" />
@@ -29,6 +27,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".view.CyclistListActivity" />
+        <activity android:name=".view.CyclistFormActivity" />
 
     </application>
 

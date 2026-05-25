@@ -22,14 +22,11 @@ public interface TourFranceService {
     @GET("cyclists")
     Call<List<Cyclist>> getAllCyclists();
 
-    @GET("cyclists")
-    Call<List<Cyclist>> getCyclistsByName(@Query("name") String name);
-
     @GET("cyclists/{id}")
     Call<Cyclist> getCyclistById(@Path("id") long id);
 
-    @POST("cyclists")
-    Call<Cyclist> addCyclist(@Body Cyclist cyclist);
+    @POST("teams/{teamId}/cyclists")
+    Call<Cyclist> addCyclist(@Path("teamId") long teamId, @Body Cyclist cyclist);
 
     @PUT("cyclists/{id}")
     Call<Cyclist> updateCyclist(@Path("id") long id, @Body Cyclist cyclist);
@@ -40,9 +37,6 @@ public interface TourFranceService {
     // --- TEAMS ---
     @GET("teams")
     Call<List<Team>> getAllTeams();
-
-    @GET("teams")
-    Call<List<Team>> getTeamsByName(@Query("name") String name);
 
     @GET("teams/{id}")
     Call<Team> getTeamById(@Path("id") long id);
@@ -60,9 +54,6 @@ public interface TourFranceService {
     @GET("stages")
     Call<List<Stage>> getAllStages();
 
-    @GET("stages")
-    Call<List<Stage>> getStagesByType(@Query("type") String type);
-
     @GET("stages/{id}")
     Call<Stage> getStageById(@Path("id") long id);
 
@@ -78,9 +69,6 @@ public interface TourFranceService {
     // --- CLIMBS ---
     @GET("climbs")
     Call<List<Climb>> getAllClimbs();
-
-    @GET("climbs")
-    Call<List<Climb>> getClimbsByCategory(@Query("category") String category);
 
     @GET("climbs/{id}")
     Call<Climb> getClimbById(@Path("id") long id);
