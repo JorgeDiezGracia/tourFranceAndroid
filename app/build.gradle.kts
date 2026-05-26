@@ -41,6 +41,7 @@ dependencies {
     implementation(libs.material)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
+    implementation("androidx.preference:preference:1.2.1")
 
     // Retrofit + Gson (llamadas a la API)
     implementation("com.squareup.retrofit2:retrofit:2.9.0")

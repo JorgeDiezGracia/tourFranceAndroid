@@ -41,6 +41,8 @@
         <activity android:name=".view.FavouriteListActivity" />
         <activity android:name=".view.FavouriteFormActivity" />
 
+        <activity android:name=".view.SettingsActivity" />
+
     </application>
 
 </manifest>

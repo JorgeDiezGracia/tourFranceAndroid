@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="Apariencia">
+
+        <ListPreference
+            app:key="theme"
+            app:title="Tema de la aplicación"
+            app:summary="Selecciona el tema visual"
+            app:entries="@array/theme_entries"
+            app:entryValues="@array/theme_values"
+            app:defaultValue="light" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="Unidades">
+
+        <ListPreference
+            app:key="distance_unit"
+            app:title="Unidad de distancia"
+            app:summary="Kilómetros o millas"
+            app:entries="@array/distance_entries"
+            app:entryValues="@array/distance_values"
+            app:defaultValue="km" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="Idioma">
+
+        <ListPreference
+            app:key="language"
+            app:title="Idioma de la app"
+            app:summary="Español o English"
+            app:entries="@array/language_entries"
+            app:entryValues="@array/language_values"
+            app:defaultValue="es" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
