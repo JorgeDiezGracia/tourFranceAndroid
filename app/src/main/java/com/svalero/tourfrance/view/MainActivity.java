@@ -25,14 +25,14 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(this, TeamListActivity.class));
         });
 
-        //MaterialCardView cardStages = findViewById(R.id.card_stages);
-       // cardStages.setOnClickListener(v -> {
-        //    startActivity(new Intent(this, StageListActivity.class));
-        //});
+        MaterialCardView cardStages = findViewById(R.id.card_stages);
+        cardStages.setOnClickListener(v -> {
+            startActivity(new Intent(this, StageListActivity.class));
+        });
 
-        //MaterialCardView cardClimbs = findViewById(R.id.card_climbs);
-        //cardClimbs.setOnClickListener(v -> {
-        //    startActivity(new Intent(this, ClimbListActivity.class));
-        //});
+        MaterialCardView cardClimbs = findViewById(R.id.card_climbs);
+        cardClimbs.setOnClickListener(v -> {
+            startActivity(new Intent(this, ClimbListActivity.class));
+        });
     }
 }

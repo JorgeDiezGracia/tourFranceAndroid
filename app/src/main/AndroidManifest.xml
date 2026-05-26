@@ -34,6 +34,10 @@
         <activity android:name=".view.TeamListActivity" />
         <activity android:name=".view.TeamFormActivity" />
 
+        <activity android:name=".view.StageListActivity" />
+
+        <activity android:name=".view.ClimbListActivity" />
+
     </application>
 
 </manifest>
