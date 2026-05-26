@@ -28,49 +28,41 @@ public class CyclistListActivity extends AppCompatActivity
     private CyclistPresenter presenter;
     private List<Cyclist> cyclistList = new ArrayList<>();
     private View tvEmpty;
-    private FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cyclist_list);
 
-        // Toolbar
         MaterialToolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
-        // Views
         recyclerView = findViewById(R.id.rv_cyclists);
         tvEmpty = findViewById(R.id.tv_empty);
-        fab = findViewById(R.id.fab_add_cyclist);
+        FloatingActionButton fab = findViewById(R.id.fab_add_cyclist);
 
-        // RecyclerView
         adapter = new CyclistAdapter(this, cyclistList, this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
 
-        // Presenter
         presenter = new CyclistPresenter(this);
         presenter.loadCyclists();
 
-        // FAB → abrir formulario de alta
         fab.setOnClickListener(v -> {
             Intent intent = new Intent(this, CyclistFormActivity.class);
             startActivityForResult(intent, 1);
         });
     }
 
-    // Volver atrás con la flecha del toolbar
     @Override
     public boolean onSupportNavigateUp() {
         finish();
         return true;
     }
 
-    // Recargar la lista al volver del formulario
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -78,8 +70,6 @@ public class CyclistListActivity extends AppCompatActivity
             presenter.loadCyclists();
         }
     }
-
-    // --- CyclistPresenter.CyclistView ---
 
     @Override
     public void showCyclists(List<Cyclist> cyclists) {
@@ -130,11 +120,8 @@ public class CyclistListActivity extends AppCompatActivity
         if (cyclistList.isEmpty()) showEmpty();
     }
 
-    // --- CyclistAdapter.OnCyclistClickListener ---
-
     @Override
     public void onCyclistClick(Cyclist cyclist) {
-        // Click simple → abrir formulario de edición
         Intent intent = new Intent(this, CyclistFormActivity.class);
         intent.putExtra("cyclist_id", cyclist.getId());
         intent.putExtra("cyclist_name", cyclist.getName());
@@ -148,10 +135,9 @@ public class CyclistListActivity extends AppCompatActivity
 
     @Override
     public void onCyclistLongClick(Cyclist cyclist) {
-        // Long click → diálogo de confirmación para borrar
         new AlertDialog.Builder(this)
-                .setTitle("Eliminar ciclista")
-                .setMessage("¿Seguro que quieres eliminar a " + cyclist.getName() + "?")
+                .setTitle(R.string.delete_cyclist)
+                .setMessage(getString(R.string.confirm_delete) + " " + cyclist.getName() + "?")
                 .setPositiveButton(R.string.yes, (dialog, which) ->
                         presenter.deleteCyclist(cyclist.getId()))
                 .setNegativeButton(R.string.cancel, null)

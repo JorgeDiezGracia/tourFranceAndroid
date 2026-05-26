@@ -53,7 +53,11 @@ public class FavouriteFormActivity extends AppCompatActivity {
             etTitles.setText(String.valueOf(getIntent().getIntExtra("fav_titles", 0)));
             etNotes.setText(getIntent().getStringExtra("fav_notes"));
             if (getSupportActionBar() != null) {
-                getSupportActionBar().setTitle("Editar favorito");
+                getSupportActionBar().setTitle(R.string.edit_favourite_title);
+            }
+        } else {
+            if (getSupportActionBar() != null) {
+                getSupportActionBar().setTitle(R.string.add_favourite_title);
             }
         }
 
@@ -68,7 +72,7 @@ public class FavouriteFormActivity extends AppCompatActivity {
         String notes = etNotes.getText().toString().trim();
 
         if (name.isEmpty()) {
-            Toast.makeText(this, "El nombre es obligatorio", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.name_required, Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -84,7 +88,7 @@ public class FavouriteFormActivity extends AppCompatActivity {
             }
             handler.post(() -> {
                 Toast.makeText(this,
-                        favId == -1 ? "Favorito añadido" : "Favorito actualizado",
+                        favId == -1 ? getString(R.string.favourite_added) : getString(R.string.favourite_updated),
                         Toast.LENGTH_SHORT).show();
                 setResult(RESULT_OK);
                 finish();

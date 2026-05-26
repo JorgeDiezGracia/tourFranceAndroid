@@ -30,7 +30,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="No hay etapas disponibles"
+        android:text="@string/no_stages"
         android:textSize="16sp"
         android:visibility="gone" />
 

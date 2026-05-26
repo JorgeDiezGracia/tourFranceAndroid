@@ -49,7 +49,11 @@ public class TeamFormActivity extends AppCompatActivity
             etBudget.setText(String.valueOf(getIntent().getFloatExtra("team_budget", 0)));
             etFundationDate.setText(getIntent().getStringExtra("team_fundation_date"));
             if (getSupportActionBar() != null) {
-                getSupportActionBar().setTitle("Editar equipo");
+                getSupportActionBar().setTitle(R.string.edit_team_title);
+            }
+        } else {
+            if (getSupportActionBar() != null) {
+                getSupportActionBar().setTitle(R.string.add_team_title);
             }
         }
 
@@ -64,7 +68,7 @@ public class TeamFormActivity extends AppCompatActivity
         String fundationDate = etFundationDate.getText().toString().trim();
 
         if (name.isEmpty() || country.isEmpty()) {
-            Toast.makeText(this, "Nombre y país son obligatorios", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.country_required, Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -94,14 +98,14 @@ public class TeamFormActivity extends AppCompatActivity
 
     @Override
     public void onTeamAdded(Team team) {
-        Toast.makeText(this, "Equipo añadido correctamente", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, R.string.team_added, Toast.LENGTH_SHORT).show();
         setResult(RESULT_OK);
         finish();
     }
 
     @Override
     public void onTeamUpdated(Team team) {
-        Toast.makeText(this, "Equipo actualizado correctamente", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, R.string.team_updated, Toast.LENGTH_SHORT).show();
         setResult(RESULT_OK);
         finish();
     }

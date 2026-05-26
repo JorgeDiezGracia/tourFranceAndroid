@@ -30,7 +30,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="No hay puertos disponibles"
+        android:text="@string/no_climbs"
         android:textSize="16sp"
         android:visibility="gone" />
 

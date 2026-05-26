@@ -21,7 +21,6 @@ public class CyclistFormActivity extends AppCompatActivity
             etTitles, etBirthdate, etTeamId;
     private MaterialButton btnSave;
     private CyclistPresenter presenter;
-
     private long cyclistId = -1;
 
     @Override
@@ -54,7 +53,11 @@ public class CyclistFormActivity extends AppCompatActivity
             etBirthdate.setText(getIntent().getStringExtra("cyclist_birthdate"));
             etTeamId.setText(String.valueOf(getIntent().getLongExtra("cyclist_team_id", 0)));
             if (getSupportActionBar() != null) {
-                getSupportActionBar().setTitle("Editar ciclista");
+                getSupportActionBar().setTitle(R.string.edit_cyclist_title);
+            }
+        } else {
+            if (getSupportActionBar() != null) {
+                getSupportActionBar().setTitle(R.string.add_cyclist_title);
             }
         }
 
@@ -70,7 +73,7 @@ public class CyclistFormActivity extends AppCompatActivity
         String teamIdStr = etTeamId.getText().toString().trim();
 
         if (name.isEmpty() || specialty.isEmpty() || birthdate.isEmpty()) {
-            Toast.makeText(this, "Nombre, especialidad y fecha son obligatorios", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.fields_required, Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -92,11 +95,8 @@ public class CyclistFormActivity extends AppCompatActivity
         return true;
     }
 
-    @Override
-    public void showCyclists(List<Cyclist> cyclists) {}
-
-    @Override
-    public void showEmpty() {}
+    @Override public void showCyclists(List<Cyclist> cyclists) {}
+    @Override public void showEmpty() {}
 
     @Override
     public void showError(String message) {
@@ -105,18 +105,17 @@ public class CyclistFormActivity extends AppCompatActivity
 
     @Override
     public void onCyclistAdded(Cyclist cyclist) {
-        Toast.makeText(this, "Ciclista añadido correctamente", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, R.string.cyclist_added, Toast.LENGTH_SHORT).show();
         setResult(RESULT_OK);
         finish();
     }
 
     @Override
     public void onCyclistUpdated(Cyclist cyclist) {
-        Toast.makeText(this, "Ciclista actualizado correctamente", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, R.string.cyclist_updated, Toast.LENGTH_SHORT).show();
         setResult(RESULT_OK);
         finish();
     }
 
-    @Override
-    public void onCyclistDeleted(long id) {}
+    @Override public void onCyclistDeleted(long id) {}
 }

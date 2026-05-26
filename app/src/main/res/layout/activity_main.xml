@@ -10,7 +10,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        app:title="Tour de France" />
+        app:title="@string/app_name" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -25,7 +25,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Selecciona una sección"
+                android:text="@string/select_section"
                 android:textSize="14sp"
                 android:textColor="?attr/colorOnSurfaceVariant"
                 android:layout_marginBottom="24dp" />
@@ -49,7 +49,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="🚴 Ciclistas"
+                        android:text="@string/cyclists"
                         android:textSize="18sp"
                         android:textStyle="bold" />
                     <TextView
@@ -80,7 +80,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="👥 Equipos"
+                        android:text="@string/teams"
                         android:textSize="18sp"
                         android:textStyle="bold" />
                     <TextView
@@ -111,7 +111,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="🗺️ Etapas"
+                        android:text="@string/stages"
                         android:textSize="18sp"
                         android:textStyle="bold" />
                     <TextView
@@ -142,7 +142,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="⛰️ Puertos"
+                        android:text="@string/climbs"
                         android:textSize="18sp"
                         android:textStyle="bold" />
                     <TextView
@@ -173,7 +173,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="⭐ Favoritos"
+                        android:text="@string/favourites"
                         android:textSize="18sp"
                         android:textStyle="bold" />
                     <TextView

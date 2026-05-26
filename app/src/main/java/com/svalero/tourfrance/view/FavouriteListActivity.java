@@ -111,13 +111,13 @@ public class FavouriteListActivity extends AppCompatActivity
     @Override
     public void onFavouriteLongClick(FavouriteCyclist favourite) {
         new AlertDialog.Builder(this)
-                .setTitle("Eliminar favorito")
-                .setMessage("¿Seguro que quieres eliminar a " + favourite.getName() + "?")
+                .setTitle(R.string.delete_favourite)
+                .setMessage(getString(R.string.confirm_delete) + " " + favourite.getName() + "?")
                 .setPositiveButton(R.string.yes, (dialog, which) -> {
                     executor.execute(() -> {
                         db.favouriteCyclistDao().delete(favourite);
                         handler.post(() -> {
-                            Toast.makeText(this, "Favorito eliminado", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(this, R.string.favourite_deleted, Toast.LENGTH_SHORT).show();
                             loadFavourites();
                         });
                     });

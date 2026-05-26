@@ -1,15 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">tourFranceAndroid</string>
+    <string name="app_name">TourFrance</string>
     <string name="cyclists">Ciclistas</string>
     <string name="add_cyclist">Añadir ciclista</string>
     <string name="no_cyclists">No hay ciclistas disponibles</string>
     <string name="teams">Equipos</string>
+    <string name="add_team">Añadir equipo</string>
+    <string name="no_teams">No hay equipos disponibles</string>
     <string name="stages">Etapas</string>
+    <string name="no_stages">No hay etapas disponibles</string>
     <string name="climbs">Puertos</string>
+    <string name="no_climbs">No hay puertos disponibles</string>
+    <string name="favourites">Favoritos</string>
+    <string name="add_favourite">Añadir favorito</string>
+    <string name="no_favourites">No hay favoritos guardados</string>
+    <string name="preferences">Preferencias</string>
+    <string name="select_section">Selecciona una sección</string>
     <string name="error_loading">Error al cargar los datos</string>
     <string name="confirm_delete">¿Eliminar este elemento?</string>
     <string name="yes">Sí</string>
     <string name="cancel">Cancelar</string>
+    <string name="save">Guardar</string>
+    <string name="name">Nombre</string>
+    <string name="specialty">Especialidad</string>
+    <string name="birthplace">Lugar de nacimiento</string>
+    <string name="titles">Títulos</string>
+    <string name="birthdate">Fecha de nacimiento (YYYY-MM-DD)</string>
+    <string name="team_id">ID del equipo</string>
+    <string name="country">País</string>
+    <string name="email">Email</string>
+    <string name="budget">Presupuesto</string>
+    <string name="fundation_date">Fecha de fundación (YYYY-MM-DD)</string>
+    <string name="personal_notes">Notas personales</string>
+    <string name="add_cyclist_title">Añadir ciclista</string>
+    <string name="edit_cyclist_title">Editar ciclista</string>
+    <string name="add_team_title">Añadir equipo</string>
+    <string name="edit_team_title">Editar equipo</string>
+    <string name="add_favourite_title">Añadir favorito</string>
+    <string name="edit_favourite_title">Editar favorito</string>
+    <string name="delete_cyclist">Eliminar ciclista</string>
+    <string name="delete_team">Eliminar equipo</string>
+    <string name="delete_favourite">Eliminar favorito</string>
+    <string name="favourite_deleted">Favorito eliminado</string>
+    <string name="cyclist_added">Ciclista añadido correctamente</string>
+    <string name="cyclist_updated">Ciclista actualizado correctamente</string>
+    <string name="team_added">Equipo añadido correctamente</string>
+    <string name="team_updated">Equipo actualizado correctamente</string>
+    <string name="favourite_added">Favorito añadido</string>
+    <string name="favourite_updated">Favorito actualizado</string>
+    <string name="name_required">El nombre es obligatorio</string>
+    <string name="fields_required">Nombre, especialidad y fecha son obligatorios</string>
+    <string name="country_required">Nombre y país son obligatorios</string>
 
     <!-- Arrays para preferencias -->
     <string-array name="theme_entries">
@@ -22,7 +63,6 @@
         <item>dark</item>
         <item>system</item>
     </string-array>
-
     <string-array name="distance_entries">
         <item>Kilómetros</item>
         <item>Millas</item>
@@ -31,7 +71,6 @@
         <item>km</item>
         <item>miles</item>
     </string-array>
-
     <string-array name="language_entries">
         <item>Español</item>
         <item>English</item>

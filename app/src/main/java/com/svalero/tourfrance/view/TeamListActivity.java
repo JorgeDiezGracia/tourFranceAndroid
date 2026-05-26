@@ -135,8 +135,8 @@ public class TeamListActivity extends AppCompatActivity
     @Override
     public void onTeamLongClick(Team team) {
         new AlertDialog.Builder(this)
-                .setTitle("Eliminar equipo")
-                .setMessage("¿Seguro que quieres eliminar a " + team.getName() + "?")
+                .setTitle(R.string.delete_team)
+                .setMessage(getString(R.string.confirm_delete) + " " + team.getName() + "?")
                 .setPositiveButton(R.string.yes, (dialog, which) ->
                         presenter.deleteTeam(team.getId()))
                 .setNegativeButton(R.string.cancel, null)

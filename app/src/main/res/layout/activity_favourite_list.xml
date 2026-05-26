@@ -13,7 +13,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:title="Ciclistas Favoritos" />
+            app:title="@string/favourites" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
-        android:contentDescription="Añadir favorito"
+        android:contentDescription="@string/add_favourite"
         android:src="@android:drawable/ic_input_add" />
 
     <TextView
@@ -39,7 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="No hay favoritos guardados"
+        android:text="@string/no_favourites"
         android:textSize="16sp"
         android:visibility="gone" />
 
