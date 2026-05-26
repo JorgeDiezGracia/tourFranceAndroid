@@ -16,23 +16,23 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         MaterialCardView cardCyclists = findViewById(R.id.card_cyclists);
-        cardCyclists.setOnClickListener(v -> {
-            startActivity(new Intent(this, CyclistListActivity.class));
-        });
+        cardCyclists.setOnClickListener(v ->
+                startActivity(new Intent(this, CyclistListActivity.class)));
 
         MaterialCardView cardTeams = findViewById(R.id.card_teams);
-        cardTeams.setOnClickListener(v -> {
-            startActivity(new Intent(this, TeamListActivity.class));
-        });
+        cardTeams.setOnClickListener(v ->
+                startActivity(new Intent(this, TeamListActivity.class)));
 
         MaterialCardView cardStages = findViewById(R.id.card_stages);
-        cardStages.setOnClickListener(v -> {
-            startActivity(new Intent(this, StageListActivity.class));
-        });
+        cardStages.setOnClickListener(v ->
+                startActivity(new Intent(this, StageListActivity.class)));
 
         MaterialCardView cardClimbs = findViewById(R.id.card_climbs);
-        cardClimbs.setOnClickListener(v -> {
-            startActivity(new Intent(this, ClimbListActivity.class));
-        });
+        cardClimbs.setOnClickListener(v ->
+                startActivity(new Intent(this, ClimbListActivity.class)));
+
+        MaterialCardView cardFavourites = findViewById(R.id.card_favourites);
+        cardFavourites.setOnClickListener(v ->
+                startActivity(new Intent(this, FavouriteListActivity.class)));
     }
 }

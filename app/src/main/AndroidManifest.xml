@@ -38,6 +38,9 @@
 
         <activity android:name=".view.ClimbListActivity" />
 
+        <activity android:name=".view.FavouriteListActivity" />
+        <activity android:name=".view.FavouriteFormActivity" />
+
     </application>
 
 </manifest>
