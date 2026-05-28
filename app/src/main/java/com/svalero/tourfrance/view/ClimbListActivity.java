@@ -1,5 +1,6 @@
 package com.svalero.tourfrance.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.svalero.tourfrance.R;
 import com.svalero.tourfrance.adapter.ClimbAdapter;
 import com.svalero.tourfrance.model.Climb;
@@ -39,6 +41,10 @@ public class ClimbListActivity extends AppCompatActivity
 
         recyclerView = findViewById(R.id.rv_climbs);
         tvEmpty = findViewById(R.id.tv_empty);
+
+        FloatingActionButton fabMap = findViewById(R.id.fab_map);
+        fabMap.setOnClickListener(v ->
+                startActivity(new Intent(this, MapActivity.class)));
 
         adapter = new ClimbAdapter(this, climbList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

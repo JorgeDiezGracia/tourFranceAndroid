@@ -8,8 +8,8 @@ android {
 
     defaultConfig {
         applicationId = "com.svalero.tourfrance"
-        minSdk = 29
-        targetSdk = 36
+        minSdk = 28
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -52,7 +52,7 @@ dependencies {
     annotationProcessor("androidx.room:room-compiler:2.6.1")
 
     // Google Maps
-    implementation("com.google.android.gms:play-services-maps:18.2.0")
+    //implementation("com.google.android.gms:play-services-maps:18.2.0")
 
     // RecyclerView
     implementation("androidx.recyclerview:recyclerview:1.3.2")
@@ -60,8 +60,14 @@ dependencies {
     // Glide (imágenes desde URL)
     implementation("com.github.bumptech.glide:glide:4.16.0")
 
+    implementation("com.mapbox.maps:android:11.7.1")
+
+
+
     // Tests
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+
+
 }
