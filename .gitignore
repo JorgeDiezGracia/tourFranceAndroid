@@ -32,3 +32,6 @@ google-services.json
 
 # Android Profiling
 *.hprof
+
+# Mapbox token
+app/src/main/res/values/developer-config.xml

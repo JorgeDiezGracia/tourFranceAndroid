@@ -1,19 +1,20 @@
 package com.svalero.tourfrance.view;
 
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.mapbox.common.MapboxOptions;
 import com.mapbox.geojson.Point;
+import com.mapbox.maps.AnnotatedFeature;
 import com.mapbox.maps.CameraOptions;
 import com.mapbox.maps.MapView;
 import com.mapbox.maps.Style;
-import com.mapbox.maps.plugin.annotation.AnnotationConfig;
-import com.mapbox.maps.plugin.annotation.AnnotationPlugin;
-import com.mapbox.maps.plugin.annotation.generated.PointAnnotationManager;
-import com.mapbox.maps.plugin.annotation.generated.PointAnnotationManagerKt;
-import com.mapbox.maps.plugin.annotation.generated.PointAnnotationOptions;
+import com.mapbox.maps.ViewAnnotationAnchor;
+import com.mapbox.maps.ViewAnnotationOptions;
 import com.svalero.tourfrance.R;
 import com.svalero.tourfrance.api.RetrofitClient;
 import com.svalero.tourfrance.api.TourFranceService;
@@ -31,16 +32,12 @@ public class MapActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        MapboxOptions.setAccessToken(
-                "pk.eyJ1Ijoiam9yZ2V0ZW4xMCIsImEiOiJjbTZnYnQyNzgwY3EzMmpzMGZ2M21xaXQyIn0.alTlyO8vRKgDIhEVWEzdBg"
-        );
+        MapboxOptions.setAccessToken(getString(R.string.mapbox_access_token));
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
 
         mapView = findViewById(R.id.mapView);
-        mapView.getMapboxMap().loadStyleUri(Style.MAPBOX_STREETS, style -> {
-            loadClimbs();
-        });
+        mapView.getMapboxMap().loadStyleUri(Style.MAPBOX_STREETS, style -> loadClimbs());
     }
 
     private void loadClimbs() {
@@ -49,7 +46,7 @@ public class MapActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<Climb>> call, Response<List<Climb>> response) {
                 if (response.isSuccessful() && response.body() != null) {
-                    addMarkers(response.body());
+                    runOnUiThread(() -> addMarkers(response.body()));
                 }
             }
 
@@ -61,12 +58,44 @@ public class MapActivity extends AppCompatActivity {
     private void addMarkers(List<Climb> climbs) {
         for (Climb climb : climbs) {
             if (climb.getLatitude() != 0 && climb.getLongitude() != 0) {
+                Point point = Point.fromLngLat(climb.getLongitude(), climb.getLatitude());
+
                 mapView.getMapboxMap().setCamera(
                         new CameraOptions.Builder()
-                                .center(Point.fromLngLat(climb.getLongitude(), climb.getLatitude()))
-                                .zoom(8.0)
+                                .center(point)
+                                .zoom(10.0)
                                 .build()
                 );
+
+                android.widget.ImageView markerView = new android.widget.ImageView(this);
+                markerView.setImageResource(android.R.drawable.ic_menu_mylocation);
+                markerView.setColorFilter(Color.RED);
+                markerView.setLayoutParams(new android.view.ViewGroup.LayoutParams(80, 80));
+
+               // TextView markerView = new TextView(this);
+                //markerView.setText("⛰ " + climb.getName());
+                //markerView.setBackgroundColor(Color.WHITE);
+                //markerView.setTextColor(Color.BLACK);
+                //markerView.setPadding(16, 8, 16, 8);
+                //markerView.setGravity(Gravity.CENTER);
+                //markerView.setTextSize(12);
+                // Añadir esto:
+                markerView.setLayoutParams(new android.view.ViewGroup.LayoutParams(
+                        android.view.ViewGroup.LayoutParams.WRAP_CONTENT,
+                        android.view.ViewGroup.LayoutParams.WRAP_CONTENT
+                ));
+
+                ViewAnnotationOptions options = new ViewAnnotationOptions.Builder()
+                        .annotatedFeature(new AnnotatedFeature(point))
+                        .allowOverlap(true)
+                        .build();
+
+                try {
+                    mapView.getViewAnnotationManager().addViewAnnotation(markerView, options);
+                    android.util.Log.d("MapActivity", "Added marker for: " + climb.getName());
+                } catch (Exception e) {
+                    android.util.Log.e("MapActivity", "Error adding marker: " + e.getMessage());
+                }
             }
         }
     }
