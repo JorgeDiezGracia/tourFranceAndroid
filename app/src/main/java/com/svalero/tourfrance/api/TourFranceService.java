@@ -14,11 +14,11 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
-import retrofit2.http.Query;
+
 
 public interface TourFranceService {
 
-    // --- CYCLISTS ---
+    // CYCLISTS
     @GET("cyclists")
     Call<List<Cyclist>> getAllCyclists();
 
@@ -34,7 +34,7 @@ public interface TourFranceService {
     @DELETE("cyclists/{id}")
     Call<Void> deleteCyclist(@Path("id") long id);
 
-    // --- TEAMS ---
+    // TEAMS
     @GET("teams")
     Call<List<Team>> getAllTeams();
 
@@ -50,7 +50,7 @@ public interface TourFranceService {
     @DELETE("teams/{id}")
     Call<Void> deleteTeam(@Path("id") long id);
 
-    // --- STAGES ---
+    // STAGES
     @GET("stages")
     Call<List<Stage>> getAllStages();
 
@@ -66,7 +66,7 @@ public interface TourFranceService {
     @DELETE("stages/{id}")
     Call<Void> deleteStage(@Path("id") long id);
 
-    // --- CLIMBS ---
+    // CLIMBS
     @GET("climbs")
     Call<List<Climb>> getAllClimbs();
 

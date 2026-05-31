@@ -79,7 +79,7 @@ public class MapActivity extends AppCompatActivity {
                 //markerView.setPadding(16, 8, 16, 8);
                 //markerView.setGravity(Gravity.CENTER);
                 //markerView.setTextSize(12);
-                // Añadir esto:
+
                 markerView.setLayoutParams(new android.view.ViewGroup.LayoutParams(
                         android.view.ViewGroup.LayoutParams.WRAP_CONTENT,
                         android.view.ViewGroup.LayoutParams.WRAP_CONTENT

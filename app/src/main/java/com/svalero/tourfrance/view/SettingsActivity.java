@@ -42,7 +42,7 @@ public class SettingsActivity extends AppCompatActivity {
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             setPreferencesFromResource(R.xml.preferences, rootKey);
 
-            // Escuchar cambio de tema en tiempo real
+            // Aplicar cambio de tema en tiempo real
             ListPreference themePref = findPreference("theme");
             if (themePref != null) {
                 themePref.setOnPreferenceChangeListener((preference, newValue) -> {
